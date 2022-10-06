@@ -1,0 +1,32 @@
+login: djeisly@yahoo.com.br
+senha: a mesma de sempre
+
+CONTAS PROGRAMAÇÃO
+
+GitHub - ok	para versionamento de código
+Netlify - ok	para publicar sites, mas nao vai usar agora
+Postman - ok	para fazer requests - mais fim do curso
+
+SISTEMAS INSTALADOS
+
+VsCode - ok 	editor de código-fonte(programar)
+GitBash - ok	Git para versionamento de codigo
+Node.js	- ok	para rodar o codigo, usa mais pra frente
+
+REDES SOCIAIS
+
+Linkedin - ok	para conseguir emprego e fazer network
+
+COMUNICAÇÃO
+
+Zoom - ok 	para as aulas ao vivo
+Slack - ok	para contato com Reprograma - falta entrar no canal
+Discord - ok	chat comum de programadores
+
+FERRAMENTAS
+
+Screen To Gif	para fazer gifs e publicar no seu GitHub ou Linkedin
+
+PASTA
+
+Reprograma	na area de trabalho, para fazer clone dos repositorios
