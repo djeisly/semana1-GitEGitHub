@@ -1,3 +1,29 @@
+Livro:
+
+http://coletivosycorax.org/wp-content/uploads/2019/09/CALIBA_E_A_BRUXA_WEB-1.pdf
+
+pra Android da pra ler com o app Moonreader 
+
+só baixar pelo formato epub
+lelivros é vidaaaa
+
+Aula dua 24/09/2022
+https://github.com/djeisly/on19-tet-s7-api-nodejs.git
+
+pesquisa sobre 
+- função assincrona
+- sistema assincrono
+
+O que é 
+
+```javascript
+db.find((err, data) => {
+   if (err) return "Ocorreu um erro"
+   res.status(200).json(data)
+})
+```
+
+
 Planilha para preencher
 
 https://docs.google.com/spreadsheets/d/1q37UJ2lxI1nCojfQJJIkQwatKXebXXwJvOTMm0NMt9s/edit#gid=1761310642
@@ -18,5 +44,122 @@ sexta 20 correção dos exercicios
 
 quarta 2 horas
 quinta até as 18h entrega de exercicios / no Classroom
+____________________________________________________________________________________________
+
+
+Criar uma promise que simule um envio de email ela precisa ter como parametro:
+
+o email da destinataria
+mensagem que será enviada.
+
+Regras de negocio: a. Se o email for vazio a retornar um erro
+____________________________________
+
+Consumir a promise de envio de email com sucesso.
+Regras de negocio:
+
+Antes de enviar o email precisa imprimir no terminal uma mensagem que o email está sendo enviado
+
+Ao consumir a promise é necessário imprimir o seu resultado no terminal, seguindo o exemplo abaixo( Não precisa conter a mesma formatação ex: tracos, indentação, quebra de linhas etc...)
+
+console:
+
+  tentando enviar email...
+  Para: beatriz@email.com
+  ---------------------------------------
+  Para conseguir realizar esse exercicio será necessário combinar todos os conhecimentos adquiridos em aula... 
+  email enviado com sucesso.
+_________________________________________________
+
+Consumir a promise de envio de email com erro.
+console:
+
+  tentando enviar email...
+
+  falha ao enviar o email.
+________________________________________________
+27/09/22 - Aula com a Ju
+https://www.youtube.com/watch?v=VP7R_WIm6-M&t=2s&ab_channel=AnneHildeVassb%C3%B8Hagen
+
+
+11995935294 Beatriz professora da semana7
+_______________________________________________
+
+Atividade da semana 8 
+
+Crie uma `API RESTFUL` usando Express que irá listar os produtos de um ecommerce.
+O modelo dos produtos está em `/exercicios/para-casa/models/produtos.json`
+
+Requisitos do exercício:
+- 1 expor uma rota GET que recebe o ID de um produto e retorna apenas esse produto na lista de produtos
+
+- 2 criar uma rota GET que lista TODOS os produtos da lista de produtos.
+
+- 3 Adicionar um novo item à lista de produtos.
+
+- 4 Utilizar o recurso `req.params.query` para criar filtros ( ex.: buscar por nome do produto, valor... ) - * Os filtros ficam a seu critério mas espero que exista ao menos dois filtros para sua rota *
+
+
+const { response } = require("express")
+
+const express = require("express") // nessa constante pega tudo que está dentro do Express com require
+const app = express()      // Aqui const app é o express
+const port = 3000          // Aqui define a porta com a numeração 3000 
+const listaDeProdutos = require("./model/produtos.json") // Aqui está buscando a lista de produtos para dentro do meu arquivo.
+
+app.use(express.json()) // aqui é um interceptor no express que pega o bady e as respostas das requisões enviadas para o servidor para ser lidas em Json
+
+
+app.get("/produtos",(req, res)=>{ // Aqui filtros
+    const filtroNome = req.query.nome?.toLocaleLowerCase()
+    const filtroValor = req.query.valor
+    
+    const produtoEscolhido = listaDeProdutos.filter((item) => {
+        if(filtroNome) {
+            return item.nome.toLowerCase() === filtroNome.toLocaleLowerCase()
+        }
+        if(filtroValor){
+            return item.valor === filtroValor // Mexer aqui neste filtro
+        }
+        return item
+    })
+    res.json(listaDeProdutos)
+})
+
+app.get("/produtos/:id", (req, res) => { // rota de ID
+    const id = req.params.id
+
+    const produtoEscolhido = listaDeProdutos.filter((item) => item.id == id)
+    
+    res.json(produtoEscolhido)
+})
+
+
+app.post("/produtos",(req, res)=>{ // incluir mais produto no body em um objeto
+    const body = req.body
+    
+    listaDeProdutos.push(body)
+
+    res.send(listaDeProdutos)
+})
+
+app.listen(port,()=>{    // Aqui listen recebe dois parametros, a porta e uma callback para subir o servidor. 
+    console.log("Api está escutando na porta 3000");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
